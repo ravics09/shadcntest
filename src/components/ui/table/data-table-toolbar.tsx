@@ -55,7 +55,7 @@ export function DataTableToolbar<TData>({
           </Button>
         )}
       </div>
-      <DataTableViewOptions columns={table.getAllColumns()} table={table} />
+      <DataTableViewOptions table={table} />
     </div>
   );
 }

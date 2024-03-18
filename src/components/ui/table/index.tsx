@@ -46,7 +46,11 @@ const TableHeader = React.forwardRef<
   HTMLTableSectionElement,
   React.HTMLAttributes<HTMLTableSectionElement>
 >(({ className, ...props }, ref) => (
-  <thead ref={ref} className={cn("[&_tr]:border-b", className)} {...props} />
+  <thead
+    ref={ref}
+    className={cn("bg-secondarysticky top-0 [&_tr]:border-b", className)}
+    {...props}
+  />
 ));
 TableHeader.displayName = "TableHeader";
 
@@ -185,13 +189,7 @@ export function DataTable<TData, TValue>({
     <div className="m-4 space-y-4">
       <DataTableToolbar table={table} />
       <div className="rounded-md border">
-        <Table
-          {...{
-            style: {
-              width: table.getCenterTotalSize(),
-            },
-          }}
-        >
+        <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
